@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+<?php 
+//jika tombol update di klik
+if (isset(\$_POST['update'])) {
+	\$post1 = \$_POST['post1'];
+	\$post2 = \$_POST['post2'];
+
+	\$update = mysql_query("UPDATE namatabel SET post1='\$post1', post2='\$post2' WHERE kodetabel='\$kodetabel'")or die(mysql_error());
+
+	if (\$update) {
+		header('location:index.php?pesan=update');
+	}
+
+}
+?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>update3</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

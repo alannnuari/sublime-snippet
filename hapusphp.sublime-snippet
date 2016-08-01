@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+<?php 
+//jika tombol hapus diklik
+if (isset(\$_GET['hapus'])) {
+	\$kodetabel = \$_GET['hapus'];
+	\$hapus = mysql_query("DELETE FROM namatabel WHERE kodetabel='\$kodetabel'")or die(mysql_error());
+	if (\$hapus) {
+		header('location:index.php?pesan=hapus');
+	}
+}
+?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hapus</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

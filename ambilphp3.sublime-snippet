@@ -1,0 +1,60 @@
+<snippet>
+	<content><![CDATA[
+<?php 
+//notifikasi pesan
+if (!empty(\$_GET['pesan']) && (\$_GET['pesan']=='sukses')) {
+	echo "<h4>Tambah data berhasil !</h4>";
+}elseif (!empty(\$_GET['pesan']) && (\$_GET['pesan']=='hapus')) {
+	echo "<h4>Hapus data berhasil !</h4>";
+}elseif (!empty(\$_GET['pesan']) && (\$_GET['pesan']=='update')) {
+	echo "<h4>Update data berhasil !</h4>";
+}
+?>
+<h4><a href="tambah.php">+ Tambah Data</a></h4>
+<?php 
+\$query = mysql_query("select * from namatabel");	
+\$hitung = mysql_num_rows(\$query);
+if (\$hitung>0) {	
+	//jika data ada
+?>
+	<table border="1" cellspacing="0" cellpadding="5" align="center">
+		<thead>
+		<tr>
+			<th>No. </th>
+			<th>field1</th>
+			<th>field2</th>
+			<th>field3</th>		
+			<th>Opsi</th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php 
+		
+		\$no = 1;
+		while (\$data=mysql_fetch_array(\$query)) {			
+		?>
+		<tr>
+			<td><?php echo \$no;?>. </td>
+			<td><?php echo \$data['field1'];?></td>
+			<td><?php echo \$data['field2'];?></td>
+			<td><?php echo \$data['field3'];?></td>
+			<td>
+				<a href="edit.php?id=<?php echo \$data['kodetabel'];?>">Edit</a> ||
+				<a href="index.php?hapus=<?php echo \$data['kodetabel'];?>">Hapus</a>
+			</td>
+		</tr>
+		<?php \$no++;} ?>
+		</tbody>
+	</table>
+<?php 
+}else{
+	//jika tidak ada data
+	echo "<h3>Tidak ada data </h3>";
+}
+?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>ambil3</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+<?php 
+//jika tombol simpan diklik
+if (isset($_POST['simpan'])) {
+	\$post1 = \$_POST['post1'];
+	\$post2 = \$_POST['post2'];
+
+	\$simpan = mysql_query("INSERT INTO namatabel values ('','\$post1','\$post2')")or die(mysql_error());
+
+	if (\$simpan) {
+		header('location:index.php?pesan=sukses');
+	}
+
+}
+?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>simpan3</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

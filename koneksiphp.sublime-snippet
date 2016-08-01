@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+<?php 
+\$host = 'localhost';
+\$user = 'root'; //username database di phpmyadmin
+\$pass = ''; //password database di phpmyadmin defaultnya kosong => ''
+\$db = ''; //nama database di phpmyadmin
+
+\$connect = mysql_connect(\$host,\$user,\$pass)or die(mysql_error());
+
+\$selectdb = mysql_select_db(\$db)or die('Database tidak ditemukan');
+
+
+?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>koneksi</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
